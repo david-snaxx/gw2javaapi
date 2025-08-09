@@ -4,19 +4,26 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import sh.snaxx.gw2javaapi.client.Gw2ApiClient;
+import sh.snaxx.gw2javaapi.model.WvwAbility;
 
 import java.util.List;
 
 public class App {
     public static void main(String[] args) {
-        Gw2ApiClient gw2ApiClient = new Gw2ApiClient();
-        List<Integer> val = gw2ApiClient.get()
-                .v2()
-                .wvw()
-                .abilities()
-                .execute();
-
-        System.out.println(val.toString());
+        Gw2ApiClient client = new Gw2ApiClient();
+        client.get()
+            .v2()
+            .wvw()
+            .abilities()
+            .id(2)
+            .execute()
+            .thenAccept(wvwAbility -> {
+                System.out.println(wvwAbility);
+            })
+            .exceptionally(e -> {
+                e.printStackTrace();
+                return null;
+            });
     }
 
     /**
