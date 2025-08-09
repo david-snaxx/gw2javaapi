@@ -1,8 +1,8 @@
 package sh.snaxx.gw2javaapi.client;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.*;
-import org.jetbrains.annotations.NotNull;
 import sh.snaxx.gw2javaapi.client.endpoint.VersionEndpoint;
 
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class Gw2ApiClient {
         return new VersionEndpoint(this);
     }
 
-    public <T> CompletableFuture<T> makeAsyncGet(String url, Class<T> responseType) {
+    public <T> CompletableFuture<T> makeAsyncGet(String url, TypeReference<T> responseType) {
         CompletableFuture<T> future = new CompletableFuture<>();
 
         Request request = new Request.Builder().url(url).get().build();
@@ -42,7 +42,7 @@ public class Gw2ApiClient {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 try (ResponseBody responseBody = response.body()) {
-                    if (!response.isSuccessful()) {
+                    if (!response.isSuccessful() || responseBody == null) {
                         future.completeExceptionally(new IOException("Unexpected code " + response.body()));
                         return;
                     }

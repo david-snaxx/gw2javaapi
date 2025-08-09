@@ -1,5 +1,6 @@
 package sh.snaxx.gw2javaapi;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -11,19 +12,16 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
         Gw2ApiClient client = new Gw2ApiClient();
-        client.get()
+        System.out.println("BeforeCall");
+        WvwAbility ability = client.get()
             .v2()
             .wvw()
             .abilities()
             .id(2)
-            .execute()
-            .thenAccept(wvwAbility -> {
-                System.out.println(wvwAbility);
-            })
-            .exceptionally(e -> {
-                e.printStackTrace();
-                return null;
-            });
+            .execute().join();
+        System.out.println("AfterCall");
+
+        System.out.println("Ability ID: " + ability.getId());
     }
 
     /**

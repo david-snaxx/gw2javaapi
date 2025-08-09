@@ -1,5 +1,6 @@
 package sh.snaxx.gw2javaapi.client.endpoint.v2.wvw;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import sh.snaxx.gw2javaapi.client.Gw2ApiClient;
 import sh.snaxx.gw2javaapi.model.WvwAbility;
 
@@ -16,6 +17,6 @@ public class WvwAbilityByIdEndpoint {
     }
 
     public CompletableFuture<WvwAbility> execute() {
-        return this.apiClient.makeAsyncGet("https://api.guildwars2.com/v2/wvw/abilities/" + this.abilityId, WvwAbility.class);
+        return this.apiClient.makeAsyncGet("https://api.guildwars2.com/v2/wvw/abilities/" + this.abilityId, new TypeReference<WvwAbility>() {});
     }
 }
