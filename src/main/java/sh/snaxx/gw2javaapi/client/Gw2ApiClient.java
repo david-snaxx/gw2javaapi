@@ -28,6 +28,12 @@ public class Gw2ApiClient {
         return new VersionEndpoint(this);
     }
 
+    /**
+     * Makes an async GET request to the provided url presuming that the url returns the specified type.
+     * @param url The url to make a GET request to.
+     * @param responseType The type of object the url provides.
+     * @return A CompletableFuture holding an object of the specified type.
+     */
     public <T> CompletableFuture<T> makeAsyncGet(String url, TypeReference<T> responseType) {
         CompletableFuture<T> future = new CompletableFuture<>();
 
@@ -57,6 +63,46 @@ public class Gw2ApiClient {
 
         this.client.newCall(request).enqueue(callback);
         return future;
+    }
+
+    /**
+     * Makes an async GET request to the provided url presuming that the url returns the specified type.
+     * Merges the existing {@link Gw2ApiClientOptions} on this api client with custom options. If an option is present
+     * in the provided {@link Gw2ApiClientOptions}, it will take priority. If an option is absent from the provided
+     * {@link Gw2ApiClientOptions}, then the api client's option will be used.
+     * <p>
+     * This does not override the options set on the api client.
+     * @param url The url to make a GET request to.
+     * @param responseType The type of object the url provides.
+     * @param options The request options to take priority for this request only.
+     * @return A CompletableFuture holding an object of the specified type.
+     */
+    public <T> CompletableFuture<T> makeAsyncGetWithOptionsAdjustment(String url, TypeReference<T> responseType, Gw2ApiClientOptions options) {
+        String finalApiKey = (options.getApiKey() == null) ? this.apiKey : options.getApiKey();
+        String finalLanguage = (options.getLanguage() == null) ? this.language : options.getLanguage();
+        String finalSchemaVersion = (options.getSchemaVersion() == null) ? this.schemaVersion : options.getSchemaVersion();
+        Gw2ApiClient tempClient = new Gw2ApiClient(finalApiKey, finalLanguage, finalSchemaVersion);
+        return tempClient.makeAsyncGet(url, responseType);
+    }
+
+    /**
+     * Makes an async GET request to the provided url presuming that the url returns the specified type.
+     * Ignores all options set by the api client and instead uses the options specified by the provided
+     * {@link Gw2ApiClientOptions} for this request only. Missing options imply that they should simply not be used
+     * for this request.
+     * <p>
+     * This does not override the options set on the api client.
+     * @param url The url to make a GET request to.
+     * @param responseType The type of object the url provides.
+     * @param options The request options to take priority for this request only.
+     * @return A CompletableFuture holding an object of the specified type.
+     */
+    public <T> CompletableFuture<T> makeAsyncGetWithOptionsOverride(String url, TypeReference<T> responseType, Gw2ApiClientOptions options) {
+        Gw2ApiClient tempClient = new Gw2ApiClient(
+                options.getApiKey(),
+                options.getLanguage(),
+                options.getSchemaVersion());
+        return tempClient.makeAsyncGet(url, responseType);
     }
 
     public String getApiKey() { return apiKey; }

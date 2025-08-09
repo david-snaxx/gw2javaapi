@@ -20,6 +20,18 @@ public class Gw2ApiClientOptions {
         return new Builder();
     }
 
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public String getSchemaVersion() {
+        return schemaVersion;
+    }
+
     public static class Builder {
 
         private String apiKey = "";
