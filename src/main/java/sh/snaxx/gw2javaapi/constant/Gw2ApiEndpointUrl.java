@@ -4,7 +4,45 @@ public enum Gw2ApiEndpointUrl {
 
     BASE("https://api.guildwars2.com");
 
+    public enum V1 {
+
+        BASE("https://api.guildwars2.com/v1"),
+        BUILD("https://api.guildwars2.com/v1/build.json"),
+        COLORS("https://api.guildwars2.com/v1/colors.json"),
+        CONTINENTS("https://api.guildwars2.com/v1/continents.json"),
+        EVENT_DETAILS("https://api.guildwars2.com/v1/event_details.json"),
+        EVENT_NAMES("https://api.guildwars2.com/v1/event_names.json"),
+        EVENTS("https://api.guildwars2.com/v1/events.json"),
+        FILES("https://api.guildwars2.com/v1/files.json"),
+        GUILD_DETAILS("https://api.guildwars2.com/v1/guild_details.json"),
+        ITEM_DETAILS("https://api.guildwars2.com/v1/item_details.json"),
+        ITEMS("https://api.guildwars2.com/v1/items.json"),
+        MAP_FLOOR("https://api.guildwars2.com/v1/map_floor.json"),
+        MAP_NAMES("https://api.guildwars2.com/v1/map_names.json"),
+        MAPS("https://api.guildwars2.com/v1/maps.json"),
+        RECIPE_DETAILS("https://api.guildwars2.com/v1/recipe_details.json"),
+        RECIPES("https://api.guildwars2.com/v1/recipes.json"),
+        SKIN_DETAILS("https://api.guildwars2.com/v1/skin_details.json"),
+        SKINS("https://api.guildwars2.com/v1/skins.json"),
+        WORLD_NAMES("https://api.guildwars2.com/v1/world_names.json"),
+        WVW("https://api.guildwars2.com/v1/wvw.json"),
+        WVW_MATCH_DETAILS("https://api.guildwars2.com/v1/wvw/match_details.json"),
+        WVW_MATCHES("https://api.guildwars2.com/v1/wvw/matches.json"),
+        WVW_OBJECTIVE_NAMES("https://api.guildwars2.com/v1/wvw/object_names.json"),
+
+        private final String url;
+
+        V1(String url) {
+            this.url = url;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+    }
+
     public enum V2 {
+
         BASE("https://api.guildwars2.com/v2"),
         BUILD("https://api.guildwars2.com/v2/build"),
         COLORS("https://api.guildwars2.com/v2/colors"),
