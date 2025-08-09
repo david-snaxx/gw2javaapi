@@ -24,6 +24,10 @@ public class Gw2ApiClient {
         this.schemaVersion = schemaVersion;
     }
 
+    /**
+     * Begins method-chaining guiding the caller through endpoints of the Guild Wars 2 api.
+     * @return Options for actions to take with api version endpoints.
+     */
     public VersionEndpoint get() {
         return new VersionEndpoint(this);
     }

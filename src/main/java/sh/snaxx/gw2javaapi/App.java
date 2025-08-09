@@ -5,23 +5,13 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import sh.snaxx.gw2javaapi.client.Gw2ApiClient;
+import sh.snaxx.gw2javaapi.constant.Gw2ApiEndpointUrl;
 import sh.snaxx.gw2javaapi.model.WvwAbility;
 
 import java.util.List;
 
 public class App {
     public static void main(String[] args) {
-        Gw2ApiClient client = new Gw2ApiClient();
-        System.out.println("BeforeCall");
-        WvwAbility ability = client.get()
-            .v2()
-            .wvw()
-            .abilities()
-            .id(2)
-            .execute().join();
-        System.out.println("AfterCall");
-
-        System.out.println("Ability ID: " + ability.getId());
     }
 
     /**
