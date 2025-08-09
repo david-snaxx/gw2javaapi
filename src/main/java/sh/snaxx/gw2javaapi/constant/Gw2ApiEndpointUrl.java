@@ -28,7 +28,7 @@ public enum Gw2ApiEndpointUrl {
         WVW("https://api.guildwars2.com/v1/wvw.json"),
         WVW_MATCH_DETAILS("https://api.guildwars2.com/v1/wvw/match_details.json"),
         WVW_MATCHES("https://api.guildwars2.com/v1/wvw/matches.json"),
-        WVW_OBJECTIVE_NAMES("https://api.guildwars2.com/v1/wvw/object_names.json"),
+        WVW_OBJECTIVE_NAMES("https://api.guildwars2.com/v1/wvw/object_names.json");
 
         private final String url;
 

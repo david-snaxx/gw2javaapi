@@ -13,4 +13,6 @@ public final class WvwEndpoint {
     public WvwAbilitiesEndpoint abilities() {
         return new WvwAbilitiesEndpoint(this.gw2ApiClient);
     }
+
+
 }
