@@ -7,7 +7,7 @@ import sh.snaxx.gw2javaapi.constant.Gw2ApiEndpointUrl;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-public class AccountDyesEndpoint {
+public final class AccountDyesEndpoint {
 
     private Gw2ApiClient gw2ApiClient;
     private String endpointUrl = Gw2ApiEndpointUrl.V2.ACCOUNT.DYES.getUrl();

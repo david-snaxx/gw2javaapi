@@ -8,7 +8,7 @@ import sh.snaxx.gw2javaapi.model.v2.account.AccountAchievement;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-public class AccountAchievementsEndpoint {
+public final class AccountAchievementsEndpoint {
 
     private Gw2ApiClient gw2ApiClient;
     private String endpointUrl = Gw2ApiEndpointUrl.V2.ACCOUNT.ACHIEVEMENTS.getUrl();

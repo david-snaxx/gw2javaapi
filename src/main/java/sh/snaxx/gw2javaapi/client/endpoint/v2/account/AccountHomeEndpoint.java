@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 // todo: for cats if a schema before 2019-03-22T00:00:00Z or no schema is used, then it returns ids instead of objects
-public class AccountHomeEndpoint {
+public final class AccountHomeEndpoint {
 
     private Gw2ApiClient gw2ApiClient;
     private String endpointUrl = Gw2ApiEndpointUrl.V2.ACCOUNT.HOME.getUrl();

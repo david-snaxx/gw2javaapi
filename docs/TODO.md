@@ -11,3 +11,5 @@ The following lists general tasks that at some point should be completed.
 - At some point, constants should be set up that mirror the api when it returns static info
   - [] This probably should be automated by another application after the first "version" of this library is complete instead of manually writing all these files.
   - [] After this is done, test classes should be revisited and cleaned up by making them refer to the constants files instead of using manually defined objects in the class fields section.
+- Numerous model items simply wrap an id and a count and should be derived from a common model
+- Endpoint classes are only allowing basic async calls, custom options need to be added after all endpoints have been defined

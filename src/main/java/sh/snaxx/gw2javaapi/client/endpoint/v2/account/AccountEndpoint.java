@@ -7,7 +7,7 @@ import sh.snaxx.gw2javaapi.model.v2.account.AccountOverview;
 
 import java.util.concurrent.CompletableFuture;
 
-public class AccountEndpoint {
+public final class AccountEndpoint {
 
     private Gw2ApiClient gw2ApiClient;
     private String endpointUrl = Gw2ApiEndpointUrl.V2.ACCOUNT.BASE.getUrl();
@@ -54,5 +54,41 @@ public class AccountEndpoint {
 
     public AccountGlidersEndpoint gliders() {
         return new AccountGlidersEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountHomeEndpoint home() {
+        return new AccountHomeEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountHomesteadEndpoint homestead() {
+        return new AccountHomesteadEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountInventoryEndpoint inventory() {
+        return new AccountInventoryEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountJadebotsEndpoint jadebots() {
+        return new AccountJadebotsEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountLegendaryArmoryEndpoint legendaryArmory() {
+        return new AccountLegendaryArmoryEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountLuckEndpoint luck() {
+        return new AccountLuckEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountMailCarriersEndpoint mailCarriers() {
+        return new AccountMailCarriersEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountMapChestsEndpoint mapChests() {
+        return new AccountMapChestsEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountMasteriesEndpoint masteries() {
+        return new AccountMasteriesEndpoint(this.gw2ApiClient);
     }
 }

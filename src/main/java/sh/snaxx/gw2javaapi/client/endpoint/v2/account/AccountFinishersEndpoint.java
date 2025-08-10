@@ -8,7 +8,7 @@ import sh.snaxx.gw2javaapi.model.v2.account.AccountFinisherOverview;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-public class AccountFinishersEndpoint {
+public final class AccountFinishersEndpoint {
 
     private Gw2ApiClient gw2ApiClient;
     private String endpointUrl = Gw2ApiEndpointUrl.V2.ACCOUNT.FINISHERS.getUrl();
