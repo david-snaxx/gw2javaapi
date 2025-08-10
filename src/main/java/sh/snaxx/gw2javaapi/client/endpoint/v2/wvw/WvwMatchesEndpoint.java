@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import sh.snaxx.gw2javaapi.client.Gw2ApiClient;
 import sh.snaxx.gw2javaapi.client.endpoint.AbstractGw2ApiEndpoint;
 import sh.snaxx.gw2javaapi.constant.Gw2ApiEndpointUrl;
-import sh.snaxx.gw2javaapi.model.v2.wvw.WvwMatchOverview;
 
 import java.util.List;
 
@@ -22,5 +21,13 @@ public final class WvwMatchesEndpoint extends AbstractGw2ApiEndpoint<List<String
 
     public WvwMultipleMatchOverviewsByIdEndpoint multipleIds(List<String> matchIds) {
         return new WvwMultipleMatchOverviewsByIdEndpoint(this.getGw2ApiClient(), matchIds);
+    }
+
+    public WvwMatchWorldOverviewEndpoint worldOverview(Integer worldId) {
+        return new WvwMatchWorldOverviewEndpoint(this.getGw2ApiClient(), worldId);
+    }
+
+    public WvwMatchWorldScoresEndpoint worldScores(Integer worldId) {
+        return new WvwMatchWorldScoresEndpoint(this.getGw2ApiClient(), worldId);
     }
 }

@@ -20,17 +20,12 @@ public class App {
         wvwMatchIds.add("1-2");
 
         Gw2ApiClient gw2ApiClient = new Gw2ApiClient();
-        gw2ApiClient.get()
-                .v2()
-                .wvw()
+        gw2ApiClient.get().v2().wvw()
                 .matches()
-                .multipleIds(wvwMatchIds)
+                .worldScores(1008)
                 .execute()
                 .thenAccept(response -> {
-                    for (WvwMatchOverview obj : response) {
-                        System.out.println(obj.maps().get(0).id());
-                        System.out.println();
-                    }
+                    System.out.println(response.victory_points().blue());
                 })
                 .exceptionally(t -> {
                     t.printStackTrace();
