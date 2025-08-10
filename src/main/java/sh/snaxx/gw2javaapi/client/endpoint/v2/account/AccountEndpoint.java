@@ -91,4 +91,48 @@ public final class AccountEndpoint {
     public AccountMasteriesEndpoint masteries() {
         return new AccountMasteriesEndpoint(this.gw2ApiClient);
     }
+
+    public AccountMaterialsEndpoint materials() {
+        return new AccountMaterialsEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountMinisEndpoint minis() {
+        return new AccountMinisEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountMountsEndpoint mounts() {
+        return new AccountMountsEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountNoveltiesEndpoint novelties() {
+        return new AccountNoveltiesEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountOutfitsEndpoint outfits() {
+        return new AccountOutfitsEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountProgressionEndpoint progression() {
+        return new AccountProgressionEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountPvpHeroesEndpoint pvpHeroes() {
+        return new AccountPvpHeroesEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountRaidsEndpoint raids() {
+        return new AccountRaidsEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountRecipesEndpoint recipes() {
+        return new AccountRecipesEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountSkiffsEndpoint skiffs() {
+        return new AccountSkiffsEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountSkinsEndpoint skins() {
+        return new AccountSkinsEndpoint(this.gw2ApiClient);
+    }
 }
