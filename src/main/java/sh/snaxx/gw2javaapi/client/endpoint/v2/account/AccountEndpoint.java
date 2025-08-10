@@ -27,4 +27,32 @@ public class AccountEndpoint {
     public AccountBankEndpoint bank() {
         return new AccountBankEndpoint(this.gw2ApiClient);
     }
+
+    public AccountBuildStorageEndpoint buildStorage() {
+        return new AccountBuildStorageEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountDailyCraftingEndpoint dailyCrafting() {
+        return new AccountDailyCraftingEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountDungeonsEndpoint dungeons() {
+        return new AccountDungeonsEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountDyesEndpoint dyes() {
+        return new AccountDyesEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountEmotesEndpoint emotes() {
+        return new AccountEmotesEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountFinishersEndpoint finishers() {
+        return new AccountFinishersEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountGlidersEndpoint gliders() {
+        return new AccountGlidersEndpoint(this.gw2ApiClient);
+    }
 }

@@ -36,4 +36,9 @@ public class AccountBuildStorageEndpoint {
         sb.deleteCharAt(sb.length() - 1);
         return this.gw2ApiClient.makeAsyncGet(sb.toString(), new TypeReference<List<AccountBuildStorageTemplate>>() {});
     }
+
+    public CompletableFuture<List<AccountBuildStorageTemplate>> getAllBuildTemplates() {
+        String endpointUrl = this.endpointUrl + "?ids=all";
+        return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<List<AccountBuildStorageTemplate>>() {});
+    }
 }
