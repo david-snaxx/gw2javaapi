@@ -25,4 +25,8 @@ public final class WvwEndpoint {
     public WvwObjectivesEndpoint objectives() {
         return new WvwObjectivesEndpoint(this.gw2ApiClient);
     }
+
+    public WvwRanksEndpoint ranks() {
+        return new WvwRanksEndpoint(this.gw2ApiClient);
+    }
 }
