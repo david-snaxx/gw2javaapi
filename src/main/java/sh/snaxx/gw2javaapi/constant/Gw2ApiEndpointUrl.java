@@ -414,7 +414,8 @@ public enum Gw2ApiEndpointUrl {
             RANKS("https://api.guildwars2.com/v2/wvw/ranks"),
             TIMERS("https://api.guildwars2.com/v2/wvw/timers"),
             TIMERS_LOCKOUT("https://api.guildwars2.com/v2/timers/lockout"),
-            TIMERS_TEAM_ASSIGNMENT("https://api.guildwars2.com/v2/timers/teamassignment");
+            TIMERS_TEAM_ASSIGNMENT("https://api.guildwars2.com/v2/timers/teamassignment"),
+            UPGRADES("https://api.guildwars2.com/v2/wvw/upgrades");
 
             private final String url;
 
