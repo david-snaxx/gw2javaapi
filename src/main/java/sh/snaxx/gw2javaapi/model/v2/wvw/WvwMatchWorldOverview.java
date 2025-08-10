@@ -1,13 +1,13 @@
 package sh.snaxx.gw2javaapi.model.v2.wvw;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import sh.snaxx.gw2javaapi.model.common.WvwTeamValues;
 
 import java.util.List;
 
@@ -21,24 +21,10 @@ import java.util.List;
 public class WvwMatchWorldOverview {
 
     private String id;
-    private WvwMatchWorldOverviewValues worlds;
+    private WvwTeamValues worlds;
     private WvwMatchWorldOverviewMultiValues all_worlds;
     private String start_time;
     private String end_time;
-
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @JsonAutoDetect(fieldVisibility =  JsonAutoDetect.Visibility.ANY)
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonPropertyOrder({ "red", "blue", "green" })
-    public static class WvwMatchWorldOverviewValues {
-
-        private Integer red;
-        private Integer blue;
-        private Integer green;
-    }
 
     @Getter
     @Setter

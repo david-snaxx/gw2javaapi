@@ -1,13 +1,13 @@
 package sh.snaxx.gw2javaapi.model.v2.wvw;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import sh.snaxx.gw2javaapi.model.common.WvwTeamValues;
 
 import java.util.List;
 
@@ -23,28 +23,14 @@ public class WvwMatchOverview {
     private String id;
     private String startTime;
     private String endTime;
-    private WvwMatchOverviewValues scores;
-    private WvwMatchOverviewValues worlds;
+    private WvwTeamValues scores;
+    private WvwTeamValues worlds;
     private WvwMatchOverviewMultiValue all_worlds;
-    private WvwMatchOverviewValues deaths;
-    private WvwMatchOverviewValues kills;
-    private WvwMatchOverviewValues victory_points;
+    private WvwTeamValues deaths;
+    private WvwTeamValues kills;
+    private WvwTeamValues victory_points;
     private List<WvwMatchOverviewSkirmish> skirmishes;
     private List<WvwMatchOverviewMap> maps;
-
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @JsonAutoDetect(fieldVisibility =  JsonAutoDetect.Visibility.ANY)
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonPropertyOrder({ "red", "blue", "green" })
-    public static class WvwMatchOverviewValues {
-
-        private Integer red;
-        private Integer blue;
-        private Integer green;
-    }
 
     @Getter
     @Setter
@@ -70,7 +56,7 @@ public class WvwMatchOverview {
     public static class WvwMatchOverviewSkirmish {
 
         private Integer id;
-        private WvwMatchOverviewValues scores;
+        private WvwTeamValues scores;
         private List<WvwMatchOverviewSkirmishMapScore> maps_scores;
     }
 
@@ -84,7 +70,7 @@ public class WvwMatchOverview {
     public static class WvwMatchOverviewSkirmishMapScore {
 
         private String type;
-        private WvwMatchOverviewValues scores;
+        private WvwTeamValues scores;
     }
 
     @Getter
@@ -98,11 +84,11 @@ public class WvwMatchOverview {
 
         private Integer id;
         private String type;
-        private WvwMatchOverviewValues scores;
+        private WvwTeamValues scores;
         private List<WvwMatchOverviewMapBonus> bonuses;
         private List<WvwMatchOverviewMapObjective> objectives;
-        private WvwMatchOverviewValues deaths;
-        private WvwMatchOverviewValues kills;
+        private WvwTeamValues deaths;
+        private WvwTeamValues kills;
     }
 
     @Getter

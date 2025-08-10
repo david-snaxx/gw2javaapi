@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import sh.snaxx.gw2javaapi.model.common.WvwTeamValues;
 
 import java.util.List;
 
@@ -20,23 +21,9 @@ import java.util.List;
 public class WvwMatchWorldStats {
 
     private String id;
-    private WvwMatchWorldStatsValues deaths;
-    private WvwMatchWorldStatsValues kills;
+    private WvwTeamValues deaths;
+    private WvwTeamValues kills;
     private List<WvwMatchWorldStatsMap> maps;
-
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonPropertyOrder({ "red", "blue", "green" })
-    public final static class WvwMatchWorldStatsValues {
-
-        private Integer red;
-        private Integer blue;
-        private Integer green;
-    }
 
     @Getter
     @Setter
@@ -49,7 +36,7 @@ public class WvwMatchWorldStats {
 
         private Integer id;
         private String type;
-        private WvwMatchWorldStatsValues deaths;
-        private WvwMatchWorldStatsValues kills;
+        private WvwTeamValues deaths;
+        private WvwTeamValues kills;
     }
 }

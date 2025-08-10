@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import sh.snaxx.gw2javaapi.model.common.WvwTeamValues;
 
 import java.util.List;
 
@@ -20,24 +21,10 @@ import java.util.List;
 public class WvwMatchWorldScores {
 
     private String id;
-    private WvwMatchWorldScoresValues scores;
-    private WvwMatchWorldScoresValues victory_points;
+    private WvwTeamValues scores;
+    private WvwTeamValues victory_points;
     private List<WvwMatchWorldScoresSkirmish> skirmishes;
     private List<WvwMatchWorldScoresMap> maps;
-
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @JsonAutoDetect(fieldVisibility =  JsonAutoDetect.Visibility.ANY)
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonPropertyOrder({ "red", "blue", "green" })
-    public static class WvwMatchWorldScoresValues {
-
-        private Integer red;
-        private Integer blue;
-        private Integer green;
-    }
 
     @Getter
     @Setter
@@ -49,7 +36,7 @@ public class WvwMatchWorldScores {
     public static class WvwMatchWorldScoresSkirmish {
 
         private Integer id;
-        private WvwMatchWorldScoresValues scores;
+        private WvwTeamValues scores;
         private List<WvwMatchWorldScoresSkirmishMap> map_scores;
     }
 
@@ -63,7 +50,7 @@ public class WvwMatchWorldScores {
     public static class WvwMatchWorldScoresSkirmishMap {
 
         private String type;
-        private WvwMatchWorldScoresValues scores;
+        private WvwTeamValues scores;
     }
 
     @Getter
@@ -77,6 +64,6 @@ public class WvwMatchWorldScores {
 
         private Integer id;
         private String type;
-        private WvwMatchWorldScoresValues scores;
+        private WvwTeamValues scores;
     }
 }
