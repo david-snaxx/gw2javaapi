@@ -13,20 +13,11 @@ import java.util.List;
 })
 public class WvwAbility {
 
-    @JsonProperty("id")
-    private Integer id;
-
-    @JsonProperty("name")
-    private String name;
-
-    @JsonProperty("description")
-    private String description;
-
-    @JsonProperty("icon")
-    private String icon;
-
-    @JsonProperty("ranks")
-    private List<WvwAbilityRank> ranks;
+    @JsonProperty("id") private Integer id;
+    @JsonProperty("name") private String name;
+    @JsonProperty("description") private String description;
+    @JsonProperty("icon") private String icon;
+    @JsonProperty("ranks") private List<WvwAbilityRank> ranks;
 
     @JsonCreator
     public WvwAbility(@JsonProperty("id") Integer id,
@@ -42,45 +33,20 @@ public class WvwAbility {
         this.ranks = ranks;
     }
 
-    public Integer getId() {
-        return id;
-    }
+    public Integer id() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public String name() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public String getName() {
-        return name;
-    }
+    public String description() { return description; }
+    public void setDescription(String description) { this.description = description; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public String icon() { return icon; }
+    public void setIcon(String icon) { this.icon = icon; }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
-    public List<WvwAbilityRank> getRanks() {
-        return ranks;
-    }
-
-    public void setRanks(List<WvwAbilityRank> ranks) {
-        this.ranks = ranks;
-    }
+    public List<WvwAbilityRank> ranks() { return ranks; }
+    public void setRanks(List<WvwAbilityRank> ranks) { this.ranks = ranks; }
 
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -89,11 +55,8 @@ public class WvwAbility {
     })
     public static class WvwAbilityRank {
 
-        @JsonProperty("cost")
-        private Integer cost;
-
-        @JsonProperty("effect")
-        private String effect;
+        @JsonProperty("cost") private Integer cost;
+        @JsonProperty("effect") private String effect;
 
         @JsonCreator
         public WvwAbilityRank(@JsonProperty("cost") Integer cost,
@@ -102,5 +65,11 @@ public class WvwAbility {
             this.cost = cost;
             this.effect = effect;
         }
+
+        public String effect() {return effect;}
+        public void setEffect(String effect) {this.effect = effect;}
+
+        public Integer cost() {return cost;}
+        public void setCost(Integer cost) {this.cost = cost;}
     }
 }

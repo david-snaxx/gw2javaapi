@@ -4,7 +4,6 @@ import sh.snaxx.gw2javaapi.client.Gw2ApiClient;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class App {
     public static void main(String[] args) {
