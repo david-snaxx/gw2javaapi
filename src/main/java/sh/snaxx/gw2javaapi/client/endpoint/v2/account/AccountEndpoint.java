@@ -135,4 +135,24 @@ public final class AccountEndpoint {
     public AccountSkinsEndpoint skins() {
         return new AccountSkinsEndpoint(this.gw2ApiClient);
     }
+
+    public AccountTitlesEndpoint titles() {
+        return new AccountTitlesEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountWalletEndpoint wallet() {
+        return new AccountWalletEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountWizardsVaultEndpoint wizardsvault() {
+        return new AccountWizardsVaultEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountWorldbossesEndpoint worldbosses() {
+        return new AccountWorldbossesEndpoint(this.gw2ApiClient);
+    }
+
+    public AccountWvwEndpoint wvw() {
+        return new AccountWvwEndpoint(this.gw2ApiClient);
+    }
 }
