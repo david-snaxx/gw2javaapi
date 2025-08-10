@@ -9,11 +9,12 @@ import java.util.concurrent.CompletableFuture;
 /**
  * Abstract base for endpoint classes within the {@code sh.snaxx.gw2javaapi.lient.endpoint} package.
  * <p>
+ * <pre>
  * Implementing classes should do the following:
  * - The generic {@code <T>} should be replaced with the object type expected from the endpoint.
- * - A {@link TypeReference<T>} should be set with {@code this.setResponseType} in the constructor.
+ * - A {@code TypeReference<T>} should be set with {@code this.setResponseType} in the constructor.
  * - A String endpoint url should be set with {@code this.setEndpointUrl} in the constructor.
- *
+ * </pre>
  * @see {@link sh.snaxx.gw2javaapi.constant.Gw2ApiEndpointUrl} for endpoint url constants.
  * @param <T> The return type expected from making a GET request to this endpoint.
  */

@@ -403,7 +403,9 @@ public enum Gw2ApiEndpointUrl {
         public enum WVW {
             BASE("https://api.guildwars2.com/v2/wvw"),
             ABILITIES("https://api.guildwars2.com/v2/wvw/abilities"),
-            GUILDS("https://api.guildwars2.com/v2/wvw/guils"),
+            GUILDS("https://api.guildwars2.com/v2/wvw/guilds"),
+            GUILDS_NA("https://api.guildwars2.com/v2/wvw/guilds/na"),
+            GUILDS_EU("https://api.guildwars2.com/v2/wvw/guilds/eu"),
             MATCHES("https://api.guildwars2.com/v2/wvw/matches"),
             OBJECTIVES("https://api.guildwars2.com/v2/wvw/objectives"),
             RANKS("https://api.guildwars2.com/v2/wvw/ranks"),

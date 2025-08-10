@@ -1,4 +1,4 @@
-package sh.snaxx.gw2javaapi.model;
+package sh.snaxx.gw2javaapi.model.v2.wvw;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;

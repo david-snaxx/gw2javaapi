@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import sh.snaxx.gw2javaapi.client.Gw2ApiClient;
 import sh.snaxx.gw2javaapi.client.endpoint.AbstractGw2ApiEndpoint;
 import sh.snaxx.gw2javaapi.constant.Gw2ApiEndpointUrl;
-import sh.snaxx.gw2javaapi.model.WvwAbility;
+import sh.snaxx.gw2javaapi.model.v2.wvw.WvwAbility;
 
 public final class WvwAbilityByIdEndpoint extends AbstractGw2ApiEndpoint<WvwAbility> {
 
