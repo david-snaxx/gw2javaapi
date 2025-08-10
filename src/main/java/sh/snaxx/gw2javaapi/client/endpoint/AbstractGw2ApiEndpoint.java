@@ -44,6 +44,8 @@ public abstract class AbstractGw2ApiEndpoint<T> {
                 clientOptions);
     }
 
+    public Gw2ApiClient getGw2ApiClient() { return this.gw2ApiClient; }
+
     public String getEndpointUrl() { return this.endpointUrl; }
     public void setEndpointUrl(String endpointUrl) { this.endpointUrl = endpointUrl; }
 
