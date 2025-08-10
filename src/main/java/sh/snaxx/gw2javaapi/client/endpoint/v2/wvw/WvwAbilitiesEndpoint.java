@@ -17,6 +17,10 @@ public final class WvwAbilitiesEndpoint {
         this.gw2ApiClient = apiClient;
     }
 
+    public CompletableFuture<List<Integer>> executeAllIds() {
+        return this.gw2ApiClient.makeAsyncGet(this.endpointUrl, new TypeReference<List<Integer>>() {});
+    }
+
     public CompletableFuture<WvwAbility> executeById(Integer abilityId) {
         String endpointUrl = this.endpointUrl + "/" + abilityId;
         return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<WvwAbility>() {});

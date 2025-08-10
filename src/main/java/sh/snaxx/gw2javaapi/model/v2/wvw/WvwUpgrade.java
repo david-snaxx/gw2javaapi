@@ -3,27 +3,26 @@ package sh.snaxx.gw2javaapi.model.v2.wvw;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Setter
+@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "id", "tiers" })
-public final class WvwUpgrade {
+public class WvwUpgrade {
 
     private Integer id;
     private List<WvwUpgradeTier> tiers;
 
     @Getter
     @Setter
+    @EqualsAndHashCode
     @NoArgsConstructor
     @AllArgsConstructor
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
@@ -38,12 +37,13 @@ public final class WvwUpgrade {
 
     @Getter
     @Setter
+    @EqualsAndHashCode
     @NoArgsConstructor
     @AllArgsConstructor
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonPropertyOrder({ "name", "description", "icon" })
-    public final static class WvwUpgradeTierUpgrade {
+    public static class WvwUpgradeTierUpgrade {
 
         private String name;
         private String description;

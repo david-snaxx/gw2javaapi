@@ -3,16 +3,14 @@ package sh.snaxx.gw2javaapi.model.v2.wvw;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import sh.snaxx.gw2javaapi.model.common.WvwTeamValues;
 
 import java.util.List;
 
 @Getter
 @Setter
+@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonAutoDetect(fieldVisibility =  JsonAutoDetect.Visibility.ANY)
@@ -34,6 +32,7 @@ public class WvwMatchOverview {
 
     @Getter
     @Setter
+    @EqualsAndHashCode
     @AllArgsConstructor
     @NoArgsConstructor
     @JsonAutoDetect(fieldVisibility =  JsonAutoDetect.Visibility.ANY)
@@ -48,6 +47,7 @@ public class WvwMatchOverview {
 
     @Getter
     @Setter
+    @EqualsAndHashCode
     @AllArgsConstructor
     @NoArgsConstructor
     @JsonAutoDetect(fieldVisibility =  JsonAutoDetect.Visibility.ANY)
@@ -62,6 +62,7 @@ public class WvwMatchOverview {
 
     @Getter
     @Setter
+    @EqualsAndHashCode
     @AllArgsConstructor
     @NoArgsConstructor
     @JsonAutoDetect(fieldVisibility =  JsonAutoDetect.Visibility.ANY)
@@ -75,6 +76,7 @@ public class WvwMatchOverview {
 
     @Getter
     @Setter
+    @EqualsAndHashCode
     @AllArgsConstructor
     @NoArgsConstructor
     @JsonAutoDetect(fieldVisibility =  JsonAutoDetect.Visibility.ANY)
@@ -93,6 +95,7 @@ public class WvwMatchOverview {
 
     @Getter
     @Setter
+    @EqualsAndHashCode
     @AllArgsConstructor
     @NoArgsConstructor
     @JsonAutoDetect(fieldVisibility =  JsonAutoDetect.Visibility.ANY)
@@ -106,6 +109,7 @@ public class WvwMatchOverview {
 
     @Getter
     @Setter
+    @EqualsAndHashCode
     @AllArgsConstructor
     @NoArgsConstructor
     @JsonAutoDetect(fieldVisibility =  JsonAutoDetect.Visibility.ANY)
