@@ -11,25 +11,24 @@ import java.util.concurrent.CompletableFuture;
 public final class WvwUpgradesEndpoint {
 
     private Gw2ApiClient gw2ApiClient;
+    private String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.UPGRADES.getUrl();
 
     public WvwUpgradesEndpoint(Gw2ApiClient gw2ApiClient) {
         this.gw2ApiClient = gw2ApiClient;
     }
 
     public CompletableFuture<List<Integer>> executeAllIds() {
-        String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.UPGRADES.getUrl();
-        return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<List<Integer>>() {});
+        return this.gw2ApiClient.makeAsyncGet(this.endpointUrl, new TypeReference<List<Integer>>() {});
     }
 
     public CompletableFuture<WvwUpgrade> executeById(Integer upgradeId) {
-        String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.UPGRADES.getUrl() + "/" + upgradeId;
+        String endpointUrl = this.endpointUrl + "/" + upgradeId;
         return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<WvwUpgrade>() {});
     }
 
     public CompletableFuture<List<WvwUpgrade>> executeByMultipleIds(List<Integer> upgradeIds) {
         StringBuilder sb = new StringBuilder();
-        sb.append(Gw2ApiEndpointUrl.V2.WVW.UPGRADES.getUrl());
-        sb.append("?ids=");
+        sb.append(this.endpointUrl).append("?ids=");
         for (Integer upgradeId : upgradeIds) {
             sb.append(upgradeId);
             sb.append(",");

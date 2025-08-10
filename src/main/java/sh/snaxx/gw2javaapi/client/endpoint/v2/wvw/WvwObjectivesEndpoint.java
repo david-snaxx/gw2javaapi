@@ -11,25 +11,24 @@ import java.util.concurrent.CompletableFuture;
 public final class WvwObjectivesEndpoint {
 
     private Gw2ApiClient gw2ApiClient;
+    private String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.OBJECTIVES.getUrl();
 
     public WvwObjectivesEndpoint(Gw2ApiClient client) {
         this.gw2ApiClient = client;
     }
 
     public CompletableFuture<List<String>> executeAllIds() {
-        String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.OBJECTIVES.getUrl();
-        return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<List<String>>() {});
+        return this.gw2ApiClient.makeAsyncGet(this.endpointUrl, new TypeReference<List<String>>() {});
     }
 
     public CompletableFuture<WvwObjective> executeById(String objectiveId) {
-        String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.OBJECTIVES.getUrl() + "/" + objectiveId;
+        String endpointUrl = this.endpointUrl + "/" + objectiveId;
         return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<WvwObjective>() {});
     }
 
     public CompletableFuture<List<WvwObjective>> executeByMultipleIds(List<String> objectiveIds) {
         StringBuilder sb = new StringBuilder();
-        sb.append(Gw2ApiEndpointUrl.V2.WVW.OBJECTIVES.getUrl());
-        sb.append("?ids=");
+        sb.append(this.endpointUrl).append("?ids=");
         for (String objectiveId : objectiveIds) {
             sb.append(objectiveId);
             sb.append(",");

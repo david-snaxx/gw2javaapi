@@ -16,11 +16,13 @@ import java.util.List;
 @AllArgsConstructor
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({ "id", "tiers" })
-public final class WvwUpgrade {
+@JsonPropertyOrder({ "id", "deaths", "kills", "maps" })
+public class WvwMatchWorldStats {
 
-    private Integer id;
-    private List<WvwUpgradeTier> tiers;
+    private String id;
+    private WvwMatchWorldStatsValues deaths;
+    private WvwMatchWorldStatsValues kills;
+    private List<WvwMatchWorldStatsMap> maps;
 
     @Getter
     @Setter
@@ -28,12 +30,12 @@ public final class WvwUpgrade {
     @AllArgsConstructor
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonPropertyOrder({ "name", "yaks_required", "upgrades" })
-    public static class WvwUpgradeTier {
+    @JsonPropertyOrder({ "red", "blue", "green" })
+    public final static class WvwMatchWorldStatsValues {
 
-        private String name;
-        private Integer yaks_required;
-        private List<WvwUpgradeTierUpgrade> upgrades;
+        private Integer red;
+        private Integer blue;
+        private Integer green;
     }
 
     @Getter
@@ -42,11 +44,12 @@ public final class WvwUpgrade {
     @AllArgsConstructor
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonPropertyOrder({ "name", "description", "icon" })
-    public final static class WvwUpgradeTierUpgrade {
+    @JsonPropertyOrder({ "id", "type", "deaths", "kills" })
+    public final static class WvwMatchWorldStatsMap {
 
-        private String name;
-        private String description;
-        private String icon;
+        private Integer id;
+        private String type;
+        private WvwMatchWorldStatsValues deaths;
+        private WvwMatchWorldStatsValues kills;
     }
 }

@@ -11,25 +11,24 @@ import java.util.concurrent.CompletableFuture;
 public final class WvwAbilitiesEndpoint {
 
     private Gw2ApiClient gw2ApiClient;
+    private String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.ABILITIES.getUrl();
 
     public WvwAbilitiesEndpoint(Gw2ApiClient apiClient) {
         this.gw2ApiClient = apiClient;
     }
 
     public CompletableFuture<WvwAbility> executeById(Integer abilityId) {
-        String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.ABILITIES.getUrl() + "/" + abilityId;
+        String endpointUrl = this.endpointUrl + "/" + abilityId;
         return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<WvwAbility>() {});
     }
 
     public CompletableFuture<List<WvwAbility>> executeByMultipleIds(List<Integer> abilityIds) {
-        String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.ABILITIES.getUrl();
         StringBuilder sb = new StringBuilder();
-        sb.append(endpointUrl);
-        sb.append("?ids=");
+        sb.append(this.endpointUrl).append("?ids=");
         for (Integer abilityId : abilityIds) {
             sb.append(abilityId).append(",");
         }
         sb.deleteCharAt(sb.length() - 1);
-        return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<List<WvwAbility>>() {});
+        return this.gw2ApiClient.makeAsyncGet(sb.toString(), new TypeReference<List<WvwAbility>>() {});
     }
 }

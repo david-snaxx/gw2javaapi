@@ -4,24 +4,30 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import sh.snaxx.gw2javaapi.client.Gw2ApiClient;
 import sh.snaxx.gw2javaapi.constant.Gw2ApiEndpointUrl;
 
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public final class WvwTimersEndpoint {
 
     private Gw2ApiClient gw2ApiClient;
+    private String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.TIMERS.getUrl();
+    private String lockoutEndpointUrl = Gw2ApiEndpointUrl.V2.WVW.TIMERS_LOCKOUT.getUrl();
+    private String teamAssignmentEndpointUrl = Gw2ApiEndpointUrl.V2.WVW.TIMERS_TEAM_ASSIGNMENT.getUrl();
 
     public WvwTimersEndpoint(Gw2ApiClient gw2ApiClient) {
         this.gw2ApiClient = gw2ApiClient;
     }
 
+    public CompletableFuture<List<String>> executeTimerIds() {
+        return this.gw2ApiClient.makeAsyncGet(this.endpointUrl, new TypeReference<List<String>>() {});
+    }
+
     public CompletableFuture<Map<String, String>> executeLockoutTimer() {
-        String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.TIMERS_LOCKOUT.getUrl();
-        return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<Map<String, String>>() {});
+        return this.gw2ApiClient.makeAsyncGet(this.lockoutEndpointUrl, new TypeReference<Map<String, String>>() {});
     }
 
     public CompletableFuture<Map<String, String>> executeTeamAssignmentTimer() {
-        String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.TIMERS_TEAM_ASSIGNMENT.getUrl();
-        return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<Map<String, String>>() {});
+        return this.gw2ApiClient.makeAsyncGet(this.teamAssignmentEndpointUrl, new TypeReference<Map<String, String>>() {});
     }
 }
