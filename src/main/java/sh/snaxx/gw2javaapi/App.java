@@ -24,12 +24,6 @@ public class App {
                 .matches()
                 .worldScores(1008)
                 .execute()
-                .thenAccept(response -> {
-                    System.out.println(response.victory_points().blue());
-                })
-                .exceptionally(t -> {
-                    t.printStackTrace();
-                    return null;
-                });
+                .join();
     }
 }

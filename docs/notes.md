@@ -1,1 +1,0 @@
-- model classes are too bloated and need a util package to remove excessive statc inner classe

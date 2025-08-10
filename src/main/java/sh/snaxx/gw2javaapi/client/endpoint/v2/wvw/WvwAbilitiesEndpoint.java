@@ -12,6 +12,14 @@ public final class WvwAbilitiesEndpoint {
         this.apiClient = apiClient;
     }
 
+
+
+
+
+
+
+    
+
     public WvwAbilityByIdEndpoint id(Integer abilityId) {
         return new WvwAbilityByIdEndpoint(this.apiClient, abilityId);
     }
