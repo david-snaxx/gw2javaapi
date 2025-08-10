@@ -19,11 +19,18 @@ public class App {
         wvwMatchIds.add("1-1");
         wvwMatchIds.add("1-2");
 
-        Gw2ApiClient gw2ApiClient = new Gw2ApiClient();
-        gw2ApiClient.get().v2().wvw()
-                .matches()
-                .worldScores(1008)
-                .execute()
-                .join();
+        Gw2ApiClient apiClient = new Gw2ApiClient();
+        apiClient.get()
+                .v2()
+                .wvw()
+                .abilities()
+                .executeById(2)
+                .thenAccept(response -> {
+                    System.out.println(response);
+                })
+                .exceptionally(e -> {
+                    e.printStackTrace();
+                    return null;
+                });
     }
 }

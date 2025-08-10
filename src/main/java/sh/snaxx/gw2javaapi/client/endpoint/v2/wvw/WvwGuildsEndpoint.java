@@ -6,18 +6,21 @@ import sh.snaxx.gw2javaapi.client.endpoint.AbstractGw2ApiEndpoint;
 import sh.snaxx.gw2javaapi.constant.Gw2ApiEndpointUrl;
 
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
-public final class WvwGuildsEndpoint extends AbstractGw2ApiEndpoint<Map<String, String>> {
+public final class WvwGuildsEndpoint extends AbstractGw2ApiEndpoint {
 
-    public WvwGuildsEndpoint(Gw2ApiClient gw2ApiClient, String region) {
+    public WvwGuildsEndpoint(Gw2ApiClient gw2ApiClient) {
         super(gw2ApiClient);
-        if (region.equals("na")) {
-            this.setEndpointUrl(Gw2ApiEndpointUrl.V2.WVW.GUILDS_NA.getUrl());
-        } else if (region.equals("eu")) {
-            this.setEndpointUrl(Gw2ApiEndpointUrl.V2.WVW.GUILDS_EU.getUrl());
-        } else {
-            //todo THIS IS AN ERROR HANDLE IT
-        }
-        this.setResponseType(new TypeReference<Map<String, String>>() {});
+    }
+
+    public CompletableFuture<Map<String, String>> executeNa() {
+        String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.GUILDS_NA.getUrl();
+        return this.execute(endpointUrl, new TypeReference<Map<String, String>>() {});
+    }
+
+    public CompletableFuture<Map<String, String>> executeEu() {
+        String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.GUILDS_EU.getUrl();
+        return this.execute(endpointUrl, new TypeReference<Map<String, String>>() {});
     }
 }

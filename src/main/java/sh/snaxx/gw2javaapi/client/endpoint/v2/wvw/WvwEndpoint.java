@@ -14,8 +14,8 @@ public final class WvwEndpoint {
         return new WvwAbilitiesEndpoint(this.gw2ApiClient);
     }
 
-    public WvwGuildsEndpoint guilds(String regionId) {
-        return new WvwGuildsEndpoint(this.gw2ApiClient, regionId);
+    public WvwGuildsEndpoint guilds() {
+        return new WvwGuildsEndpoint(this.gw2ApiClient);
     }
 
     public WvwMatchesEndpoint matches() {

@@ -4,30 +4,48 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import sh.snaxx.gw2javaapi.client.Gw2ApiClient;
 import sh.snaxx.gw2javaapi.client.endpoint.AbstractGw2ApiEndpoint;
 import sh.snaxx.gw2javaapi.constant.Gw2ApiEndpointUrl;
+import sh.snaxx.gw2javaapi.model.v2.wvw.WvwMatchOverview;
+import sh.snaxx.gw2javaapi.model.v2.wvw.WvwMatchWorldOverview;
+import sh.snaxx.gw2javaapi.model.v2.wvw.WvwMatchWorldScores;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
-public final class WvwMatchesEndpoint extends AbstractGw2ApiEndpoint<List<String>> {
+public final class WvwMatchesEndpoint extends AbstractGw2ApiEndpoint {
 
     public WvwMatchesEndpoint(Gw2ApiClient gw2ApiClient) {
         super(gw2ApiClient);
-        this.setEndpointUrl(Gw2ApiEndpointUrl.V2.WVW.MATCHES.getUrl());
-        this.setResponseType(new TypeReference<List<String>>() {});
     }
 
-    public WvwMatchOverviewByIdEndpoint id(String matchId) {
-        return new WvwMatchOverviewByIdEndpoint(this.getGw2ApiClient(), matchId);
+    public CompletableFuture<List<String>> executeForMatchIds() {
+        String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.MATCHES.getUrl();
+        return this.execute(endpointUrl, new TypeReference<List<String>>() {});
     }
 
-    public WvwMultipleMatchOverviewsByIdEndpoint multipleIds(List<String> matchIds) {
-        return new WvwMultipleMatchOverviewsByIdEndpoint(this.getGw2ApiClient(), matchIds);
+    public CompletableFuture<WvwMatchOverview> executeMatchOverview(String matchId) {
+        String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.MATCHES.getUrl() + "/" + matchId;
+        return this.execute(endpointUrl, new TypeReference<WvwMatchOverview>() {});
     }
 
-    public WvwMatchWorldOverviewEndpoint worldOverview(Integer worldId) {
-        return new WvwMatchWorldOverviewEndpoint(this.getGw2ApiClient(), worldId);
+    public CompletableFuture<List<WvwMatchOverview>> executeMultipleMatchOverviews(List<String> matchIds) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(Gw2ApiEndpointUrl.V2.WVW.MATCHES.getUrl());
+        sb.append("?ids=");
+        for (String matchId : matchIds) {
+            sb.append(matchId);
+            sb.append(",");
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        return this.execute(sb.toString(), new TypeReference<List<WvwMatchOverview>>() {});
     }
 
-    public WvwMatchWorldScoresEndpoint worldScores(Integer worldId) {
-        return new WvwMatchWorldScoresEndpoint(this.getGw2ApiClient(), worldId);
+    public CompletableFuture<WvwMatchWorldOverview> executeMatchWorldOverview(Integer worldId) {
+        String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.MATCH_WORLD_OVERVIEW.getUrl() + worldId;
+        return this.execute(endpointUrl, new TypeReference<WvwMatchWorldOverview>() {});
+    }
+
+    public CompletableFuture<WvwMatchWorldScores> executeMatchWorldScores(Integer worldId) {
+        String endpointUrl = Gw2ApiEndpointUrl.V2.WVW.MATCH_WORLD_SCORES.getUrl() + worldId;
+        return this.execute(endpointUrl, new TypeReference<WvwMatchWorldScores>() {});
     }
 }
