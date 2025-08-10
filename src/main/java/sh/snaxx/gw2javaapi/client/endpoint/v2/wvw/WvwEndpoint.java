@@ -21,4 +21,8 @@ public final class WvwEndpoint {
     public WvwMatchesEndpoint matches() {
         return new WvwMatchesEndpoint(this.gw2ApiClient);
     }
+
+    public WvwObjectivesEndpoint objectives() {
+        return new WvwObjectivesEndpoint(this.gw2ApiClient);
+    }
 }

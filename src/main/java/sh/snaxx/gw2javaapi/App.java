@@ -26,7 +26,7 @@ public class App {
                 .abilities()
                 .executeById(2)
                 .thenAccept(response -> {
-                    System.out.println(response);
+                    System.out.println(response.getDescription());
                 })
                 .exceptionally(e -> {
                     e.printStackTrace();
