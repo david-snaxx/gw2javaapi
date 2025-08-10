@@ -23,4 +23,8 @@ public class AccountEndpoint {
     public AccountAchievementsEndpoint achievements() {
         return new AccountAchievementsEndpoint(this.gw2ApiClient);
     }
+
+    public AccountBankEndpoint bank() {
+        return new AccountBankEndpoint(this.gw2ApiClient);
+    }
 }
