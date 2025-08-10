@@ -17,16 +17,16 @@ public final class WvwRanksEndpoint {
         this.gw2ApiClient = apiClient;
     }
 
-    public CompletableFuture<Integer> executeAllIds() {
+    public CompletableFuture<Integer> getAllRankIds() {
         return this.gw2ApiClient.makeAsyncGet(this.endpointUrl, new TypeReference<Integer>() {});
     }
 
-    public CompletableFuture<WvwRank> executeById(Integer rankId) {
+    public CompletableFuture<WvwRank> getRank(Integer rankId) {
         String endpointUrl = this.endpointUrl + "/" + rankId;
         return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<WvwRank>() {});
     }
 
-    public CompletableFuture<List<WvwRank>> executeMultipleRanksById(List<Integer> rankIds) {
+    public CompletableFuture<List<WvwRank>> getMultipleRanks(List<Integer> rankIds) {
         StringBuilder sb = new StringBuilder();
         sb.append(this.endpointUrl).append("?ids=");
         for (Integer rankId : rankIds) {

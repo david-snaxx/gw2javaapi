@@ -28,7 +28,7 @@ public class Gw2ApiClient {
      * Begins method-chaining guiding the caller through endpoints of the Guild Wars 2 api.
      * @return Options for actions to take with api version endpoints.
      */
-    public VersionEndpoint get() {
+    public VersionEndpoint request() {
         return new VersionEndpoint(this);
     }
 

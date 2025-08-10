@@ -23,16 +23,16 @@ public final class WvwMatchesEndpoint {
         this.gw2ApiClient = gw2ApiClient;
     }
 
-    public CompletableFuture<List<String>> executeForMatchIds() {
+    public CompletableFuture<List<String>> getAllMatchIds() {
         return this.gw2ApiClient.makeAsyncGet(this.endpointUrl, new TypeReference<List<String>>() {});
     }
 
-    public CompletableFuture<WvwMatchOverview> executeMatchOverview(String matchId) {
+    public CompletableFuture<WvwMatchOverview> getMatchOverview(String matchId) {
         String endpointUrl = this.endpointUrl + "/" + matchId;
         return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<WvwMatchOverview>() {});
     }
 
-    public CompletableFuture<List<WvwMatchOverview>> executeMultipleMatchOverviews(List<String> matchIds) {
+    public CompletableFuture<List<WvwMatchOverview>> getMultipleMatchOverviews(List<String> matchIds) {
         StringBuilder sb = new StringBuilder();
         sb.append(this.endpointUrl).append("?ids=");
         for (String matchId : matchIds) {
@@ -43,17 +43,17 @@ public final class WvwMatchesEndpoint {
         return this.gw2ApiClient.makeAsyncGet(sb.toString(), new TypeReference<List<WvwMatchOverview>>() {});
     }
 
-    public CompletableFuture<WvwMatchWorldOverview> executeMatchWorldOverview(Integer worldId) {
+    public CompletableFuture<WvwMatchWorldOverview> getWorldMatchOverview(Integer worldId) {
         String endpointUrl = this.worldOverviewEndpointUrl + worldId;
         return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<WvwMatchWorldOverview>() {});
     }
 
-    public CompletableFuture<WvwMatchWorldScores> executeMatchWorldScores(Integer worldId) {
+    public CompletableFuture<WvwMatchWorldScores> getWorldMatchScores(Integer worldId) {
         String endpointUrl = this.worldScoresEndpointUrl + worldId;
         return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<WvwMatchWorldScores>() {});
     }
 
-    public CompletableFuture<WvwMatchWorldStats> executeMatchWorldStats(Integer worldId) {
+    public CompletableFuture<WvwMatchWorldStats> getWorldMatchStats(Integer worldId) {
         String endpointUrl = this.worldStatsEndpointUrl + worldId;
         return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<WvwMatchWorldStats>() {});
     }

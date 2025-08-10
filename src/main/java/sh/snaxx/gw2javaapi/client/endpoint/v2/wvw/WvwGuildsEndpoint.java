@@ -19,15 +19,15 @@ public final class WvwGuildsEndpoint {
         this.gw2ApiClient = gw2ApiClient;
     }
 
-    public CompletableFuture<List<String>> executeRegionIds() {
+    public CompletableFuture<List<String>> getRegionIds() {
         return this.gw2ApiClient.makeAsyncGet(this.endpointUrl, new TypeReference<List<String>>() {});
     }
 
-    public CompletableFuture<Map<String, String>> executeNa() {
+    public CompletableFuture<Map<String, String>> getNaGuilds() {
         return this.gw2ApiClient.makeAsyncGet(this.naEndpointUrl, new TypeReference<Map<String, String>>() {});
     }
 
-    public CompletableFuture<Map<String, String>> executeEu() {
+    public CompletableFuture<Map<String, String>> getEuGuilds() {
         return this.gw2ApiClient.makeAsyncGet(this.euEndpointUrl, new TypeReference<Map<String, String>>() {});
     }
 }

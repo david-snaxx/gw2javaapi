@@ -5,7 +5,7 @@ package sh.snaxx.gw2javaapi.exception;
  * <p>
  * Possible exceptions:
  * <ul>
- *     <li>{@link MissingRequiredApiKeyException}</li> - Authentication error from missing api key
+ *     <li>{@link MissingApiKeyException}</li> - Authentication error from missing api key
  * </ul>
  */
 public class GuildWars2ApiException extends RuntimeException {

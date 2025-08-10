@@ -17,16 +17,16 @@ public final class WvwAbilitiesEndpoint {
         this.gw2ApiClient = apiClient;
     }
 
-    public CompletableFuture<List<Integer>> executeAllIds() {
+    public CompletableFuture<List<Integer>> getAllAbilityIds() {
         return this.gw2ApiClient.makeAsyncGet(this.endpointUrl, new TypeReference<List<Integer>>() {});
     }
 
-    public CompletableFuture<WvwAbility> executeById(Integer abilityId) {
+    public CompletableFuture<WvwAbility> getAbility(Integer abilityId) {
         String endpointUrl = this.endpointUrl + "/" + abilityId;
         return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<WvwAbility>() {});
     }
 
-    public CompletableFuture<List<WvwAbility>> executeByMultipleIds(List<Integer> abilityIds) {
+    public CompletableFuture<List<WvwAbility>> getMultipleAbilities(List<Integer> abilityIds) {
         StringBuilder sb = new StringBuilder();
         sb.append(this.endpointUrl).append("?ids=");
         for (Integer abilityId : abilityIds) {

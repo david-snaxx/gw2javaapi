@@ -19,15 +19,15 @@ public final class WvwTimersEndpoint {
         this.gw2ApiClient = gw2ApiClient;
     }
 
-    public CompletableFuture<List<String>> executeTimerIds() {
+    public CompletableFuture<List<String>> getAllTimerIds() {
         return this.gw2ApiClient.makeAsyncGet(this.endpointUrl, new TypeReference<List<String>>() {});
     }
 
-    public CompletableFuture<Map<String, String>> executeLockoutTimer() {
+    public CompletableFuture<Map<String, String>> getLockoutTimer() {
         return this.gw2ApiClient.makeAsyncGet(this.lockoutEndpointUrl, new TypeReference<Map<String, String>>() {});
     }
 
-    public CompletableFuture<Map<String, String>> executeTeamAssignmentTimer() {
+    public CompletableFuture<Map<String, String>> getTeamAssignmentTimer() {
         return this.gw2ApiClient.makeAsyncGet(this.teamAssignmentEndpointUrl, new TypeReference<Map<String, String>>() {});
     }
 }

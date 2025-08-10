@@ -17,16 +17,16 @@ public final class WvwUpgradesEndpoint {
         this.gw2ApiClient = gw2ApiClient;
     }
 
-    public CompletableFuture<List<Integer>> executeAllIds() {
+    public CompletableFuture<List<Integer>> getAllUpgradeIds() {
         return this.gw2ApiClient.makeAsyncGet(this.endpointUrl, new TypeReference<List<Integer>>() {});
     }
 
-    public CompletableFuture<WvwUpgrade> executeById(Integer upgradeId) {
+    public CompletableFuture<WvwUpgrade> getUpgrade(Integer upgradeId) {
         String endpointUrl = this.endpointUrl + "/" + upgradeId;
         return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<WvwUpgrade>() {});
     }
 
-    public CompletableFuture<List<WvwUpgrade>> executeByMultipleIds(List<Integer> upgradeIds) {
+    public CompletableFuture<List<WvwUpgrade>> getMultipleUpgrades(List<Integer> upgradeIds) {
         StringBuilder sb = new StringBuilder();
         sb.append(this.endpointUrl).append("?ids=");
         for (Integer upgradeId : upgradeIds) {

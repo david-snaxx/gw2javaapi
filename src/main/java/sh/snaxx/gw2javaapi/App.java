@@ -1,7 +1,6 @@
 package sh.snaxx.gw2javaapi;
 
 import sh.snaxx.gw2javaapi.client.Gw2ApiClient;
-import sh.snaxx.gw2javaapi.model.v2.wvw.WvwMatchOverview;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +19,11 @@ public class App {
         wvwMatchIds.add("1-2");
 
         Gw2ApiClient apiClient = new Gw2ApiClient();
-        apiClient.get()
+        apiClient.request()
                 .v2()
                 .wvw()
                 .abilities()
-                .executeById(2)
+                .getAbility(2)
                 .thenAccept(response -> {
                     System.out.println(response.getDescription());
                 })

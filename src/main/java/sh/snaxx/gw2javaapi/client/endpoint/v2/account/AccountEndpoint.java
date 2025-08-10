@@ -16,7 +16,11 @@ public class AccountEndpoint {
         this.gw2ApiClient = gw2ApiClient;
     }
 
-    public CompletableFuture<AccountOverview> executeAccountOverview() {
+    public CompletableFuture<AccountOverview> getAccountOverview() {
         return this.gw2ApiClient.makeAsyncGet(this.endpointUrl, new TypeReference<AccountOverview>() {});
+    }
+
+    public AccountAchievementsEndpoint achievements() {
+        return new AccountAchievementsEndpoint(this.gw2ApiClient);
     }
 }

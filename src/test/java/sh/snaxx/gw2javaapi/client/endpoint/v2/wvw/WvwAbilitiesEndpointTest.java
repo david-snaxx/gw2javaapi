@@ -54,8 +54,8 @@ public class WvwAbilitiesEndpointTest {
     );
 
     @Test
-    public void testExecuteAllIds() {
-        List<Integer> receivedObject = gw2ApiClient.get().v2().wvw().abilities().executeAllIds().join();
+    public void testGetAllAbilityIds() {
+        List<Integer> receivedObject = gw2ApiClient.request().v2().wvw().abilities().getAllAbilityIds().join();
 
         Assertions.assertNotNull(receivedObject);
         Assertions.assertEquals(2, (int) receivedObject.get(0));
@@ -63,12 +63,12 @@ public class WvwAbilitiesEndpointTest {
     }
 
     @Test
-    public void testExecuteById() {
+    public void testGetAbility() {
         List<Integer> testIds = Arrays.asList(2, 3, 4);
 
-        WvwAbility receivedId2 = gw2ApiClient.get().v2().wvw().abilities().executeById(2).join();
-        WvwAbility receivedId3 = gw2ApiClient.get().v2().wvw().abilities().executeById(3).join();
-        WvwAbility receivedId4 = gw2ApiClient.get().v2().wvw().abilities().executeById(4).join();
+        WvwAbility receivedId2 = gw2ApiClient.request().v2().wvw().abilities().getAbility(2).join();
+        WvwAbility receivedId3 = gw2ApiClient.request().v2().wvw().abilities().getAbility(3).join();
+        WvwAbility receivedId4 = gw2ApiClient.request().v2().wvw().abilities().getAbility(4).join();
 
         Assertions.assertNotNull(receivedId2);
         Assertions.assertNotNull(receivedId3);
@@ -79,10 +79,10 @@ public class WvwAbilitiesEndpointTest {
     }
 
     @Test
-    public void testExecuteByMultipleIds() {
+    public void testGetMultipleAbilities() {
         List<Integer> testIds = Arrays.asList(2, 3, 4);
 
-        List<WvwAbility> recievedObjects = this.gw2ApiClient.get().v2().wvw().abilities().executeByMultipleIds(testIds).join();
+        List<WvwAbility> recievedObjects = this.gw2ApiClient.request().v2().wvw().abilities().getMultipleAbilities(testIds).join();
         Optional<WvwAbility> recievedId2 = recievedObjects.stream()
                 .filter(object -> Objects.equals(object.getId(), 2))
                 .findFirst();

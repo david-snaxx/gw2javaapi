@@ -17,16 +17,16 @@ public final class WvwObjectivesEndpoint {
         this.gw2ApiClient = client;
     }
 
-    public CompletableFuture<List<String>> executeAllIds() {
+    public CompletableFuture<List<String>> getAllObjectiveIds() {
         return this.gw2ApiClient.makeAsyncGet(this.endpointUrl, new TypeReference<List<String>>() {});
     }
 
-    public CompletableFuture<WvwObjective> executeById(String objectiveId) {
+    public CompletableFuture<WvwObjective> getObjective(String objectiveId) {
         String endpointUrl = this.endpointUrl + "/" + objectiveId;
         return this.gw2ApiClient.makeAsyncGet(endpointUrl, new TypeReference<WvwObjective>() {});
     }
 
-    public CompletableFuture<List<WvwObjective>> executeByMultipleIds(List<String> objectiveIds) {
+    public CompletableFuture<List<WvwObjective>> getMultipleObjectives(List<String> objectiveIds) {
         StringBuilder sb = new StringBuilder();
         sb.append(this.endpointUrl).append("?ids=");
         for (String objectiveId : objectiveIds) {
